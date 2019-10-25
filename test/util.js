@@ -60,3 +60,9 @@ exports.callInSeries = function(callbacks, args) {
 
   callback.apply(callback, args);
 };
+
+exports.errorHandler = function(callback) {
+  return function(error) {
+    if (error) callback(error);
+  };
+};
